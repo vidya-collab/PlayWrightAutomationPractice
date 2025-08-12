@@ -12,7 +12,7 @@ test('Locate multiple elements', async ({page})=>{
         console.log(linktext);
     }   
 
- const products = await page.$$('div#tbodyid div div a');
+ const products = await page.$$(//div[@id='tbodyid']//div//div/a);
 
     console.log('Total number of products:', products.length);
 
