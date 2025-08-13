@@ -1,8 +1,10 @@
 const {test, expect} = require('@playwright/test'); 
 
-test('Locate multiple elements', async ({page})=>{
-
-    await page.goto('https://www.demoblaze.com/index.html ');
+test('Locate Multiple Elements', async ({ page }) => {
+  await page.goto('https://www.demoblaze.com/index.html', {
+    waitUntil: 'domcontentloaded',
+    timeout: 45_000
+  });
 
     const links = await page.$$('a');
 
@@ -12,7 +14,7 @@ test('Locate multiple elements', async ({page})=>{
         console.log(linktext);
     }   
 
- const products = await page.$$('div#tbodyid div div a');
+ const products = await page.$$(//div[@id='tbodyid']//div//div/a);
 
     console.log('Total number of products:', products.length);
 

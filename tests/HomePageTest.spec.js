@@ -1,9 +1,16 @@
 //@ts-check
 import { test, expect } from '@playwright/test';
 
-test('Home title', async ({ page }) => {
+
+//test('Home title', async ({ page }) => {
   
-await page.goto('https://www.demoblaze.com/index.html');
+//await page.goto('https://www.demoblaze.com/index.html');
+
+test('Home opens', async ({ page }) => {
+  await page.goto('https://www.demoblaze.com/index.html', {
+    waitUntil: 'domcontentloaded',
+    timeout: 45_000
+  });
 
 const pageTitle = await page.title();
 console.log('page title is:',pageTitle);
