@@ -1,10 +1,10 @@
 const {test, expect} = require('@playwright/test'); 
 
 test('Locate Multiple Elements', async ({ page }) => {
-  await page.goto('https://www.demoblaze.com/index.html', {
-    waitUntil: 'domcontentloaded',
-    timeout: 45_000
-  });
+  
+await page.goto('https://www.demoblaze.com/index.html');
+
+// Removed duplicate or commented test block for clarity
 
     const links = await page.$$('a');
 
@@ -14,16 +14,16 @@ test('Locate Multiple Elements', async ({ page }) => {
         console.log(linktext);
     }   
 
- const products = await page.$$(//div[@id='tbodyid']//div//div/a);
+ const products = await page.$$("xpath=//div[@id='tbodyid']//div//div/a");
 
-    console.log('Total number of products:', products.length);
+    console.log('Total number of products:', products.length)
 
     // Loop through each product and log its text content
 
- for (const product of products)
+    for (const product of products)
     {
         const producttext = await product.textContent();
         console.log(producttext);
-    }
 
-})
+ }
+    })

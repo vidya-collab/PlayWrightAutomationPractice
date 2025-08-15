@@ -3,11 +3,15 @@
 
 import { test, expect } from '@playwright/test';
 
-test('Locator', async ({ page }) => {
-  await page.goto('https://www.demoblaze.com/index.html', {
-    waitUntil: 'domcontentloaded',
-    timeout: 45_000
-  });
+test('Locate Elements', async ({ page }) => {
+  
+await page.goto('https://www.demoblaze.com/index.html');
+
+// test('Locator', async ({ page }) => {
+//   await page.goto('https://www.demoblaze.com/index.html', {
+//     waitUntil: 'domcontentloaded',
+//     timeout: 45_000
+//   });
 
 await page.click("//a[@id='login2']");                                     //xpath//click on login button
 

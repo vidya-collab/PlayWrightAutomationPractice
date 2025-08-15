@@ -1,12 +1,9 @@
 {
-  "name": "playwrightautomation",
+  "name": "playwrightautomationvscodeext",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "playwright test",
-    "test:ci": "playwright test --reporter=html,line"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
