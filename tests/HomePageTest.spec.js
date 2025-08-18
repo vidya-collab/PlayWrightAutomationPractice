@@ -16,8 +16,8 @@ const pageTitle = await page.title();
 console.log('page title is:',pageTitle);
 
 
-await expect(page).toHaveTitle('STORE');
-
+//await expect(page).toHaveTitle('STORE');
+await expect(page).toHaveTitle('STOREFalse'); // making it fail to see retries in action
 const pageUrl=await page.url();
 console.log('page url is:',pageUrl);
 
