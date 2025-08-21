@@ -13,6 +13,7 @@ import { on } from 'events';
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -26,8 +27,22 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    // Playwright HTML report
+ 
+  /*----------------------------------------------------------------------*/ 
+  /* below all code for build in report*/  
+  
+  /**reporter: 
+  //'dot', // 'html' for HTML report, 'list' for console output
+  //'line',   // 'dot' for console output, 'html' for HTML report, 'list' for console output
+  //reporter: // 'html', // 'html' for HTML report, 'list' for console output
+  //reporter: 'html', // 'html' for HTML report, 'list' for console output  //reporter: [['html', { open: 'never
+  //'list' ,      // 'list' for console output **/
+  reporter: [['json', { outputFile: 'results.json' }]],
+
+/*---------------------- below are custom report ----------------------------------------------------*/
+
+  /* reporter: [
+  // Playwright HTML report
     ['html', { open: 'never', outputFolder: 'playwright-report' }],
     // Console reporter (optional but handy)
     ['list'],
@@ -37,8 +52,10 @@ export default defineConfig({
       detail: true,                     // include step details
       suiteTitle: false                 // keep original test titles
     }]
-  ], // to generate allure report use command npx allure generate allure-results --clean -o allure-report
-  //https://github.com/allure-framework/allure-js/tree/main/packages/allure-playwright for more details
+  ], */
+  
+  // to generate allure report use command npx allure generate allure-results --clean -o allure-report
+  // https://github.com/allure-framework/allure-js/tree/main/packages/allure-playwright for more details
   
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -51,7 +68,7 @@ export default defineConfig({
     trace: 'on', 
     // to always collect trace files for all tests 
     video: 'on', // to always record video for all tests
-    screenshot: 'on', // to always take screenshot for all tests
+    screenshot:'only-on-failure', // to always take screenshot for all tests
 
   },
 
